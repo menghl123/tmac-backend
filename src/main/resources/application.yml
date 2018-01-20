@@ -1,0 +1,22 @@
+spring:
+  messages:
+    basename: ValidationMessages
+    encoding: UTF-8
+#    hibernate:
+#      ddl-auto: update
+  profiles:
+#    active: dev
+    active: local
+flyway:
+  baseline-on-migrate: true
+  locations: db/migration,db/migration-mock
+
+server:
+  servlet-path: /api
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    password: secretkey
+    property:
+      prefix: "ENC@["
+      suffix: "]"
