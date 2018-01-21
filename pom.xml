@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>life</name>
+	<name>tmac-backend</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
