@@ -11,6 +11,6 @@ spring:
 
 application:
   cors:
-    allowed-origins: http://localhost:4200,http://localhost:4201,http://112.74.54.193
+    allowed-origins: http://localhost:4200,http://localhost:4201,http://112.74.54.193,http://112.74.54.193:4200
   web:
     upload-path: /usr/tmac/static

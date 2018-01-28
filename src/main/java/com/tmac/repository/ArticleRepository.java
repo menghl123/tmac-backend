@@ -11,8 +11,10 @@ public interface ArticleRepository extends PagingAndSortingRepository<Article, S
 
     Page<Article> findAllByCreater(final String creater, final Pageable pageable);
 
-    Page<Article> findAllByIsPrivateAndStatusNot(final Integer isPrivate,
-                                                 final ArticleStatus articleStatus,
-                                                 final Pageable pageable);
+    Page<Article> findAllByIsPrivateAndStatusNotAndTypeContaining(final Integer isPrivate,
+                                                        final ArticleStatus articleStatus,
+                                                        final String type,
+                                                        final Pageable pageable);
+
     Integer countByCreaterAndStatusNot(final String creater, final ArticleStatus articleStatus);
 }

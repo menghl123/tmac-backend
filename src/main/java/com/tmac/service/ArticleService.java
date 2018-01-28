@@ -31,10 +31,11 @@ public class ArticleService {
         this.articleMapper = articleMapper;
     }
 
-    public Page<ArticleVo> indexFindAll(final Integer page, final Integer size) {
-        final Page<Article> pager = this.articleRepository.findAllByIsPrivateAndStatusNot(
+    public Page<ArticleVo> indexFindAll(final Integer page, final Integer size, final String type) {
+        final Page<Article> pager = this.articleRepository.findAllByIsPrivateAndStatusNotAndTypeContaining(
                 0,
                 ArticleStatus.DELETED,
+                type,
                 new PageRequest(page, size, new Sort(Sort.Direction.DESC, "createTime")));
         return this.articleMapper.mapToArticleVoPager(pager);
     }

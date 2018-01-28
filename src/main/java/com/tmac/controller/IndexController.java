@@ -1,5 +1,6 @@
 package com.tmac.controller;
 
+import com.tmac.entity.Article;
 import com.tmac.entity.User;
 import com.tmac.service.ArticleService;
 import com.tmac.service.UserService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +32,14 @@ public class IndexController {
 
     @GetMapping(value = "articles")
     public Page<ArticleVo> findAllArticles(@RequestParam final Integer page,
-                                   @RequestParam final Integer size) {
-        return this.articleService.indexFindAll(page - 1, size);
+                                           @RequestParam final Integer size,
+                                           @RequestParam(required = false) final String type) {
+        return this.articleService.indexFindAll(page - 1, size,type);
+    }
+
+    @GetMapping(value = "articles/{id}")
+    public Article findArticle(@PathVariable("id") final String id) {
+        return this.articleService.find(id);
     }
 
     @GetMapping("users/accountUnique")
