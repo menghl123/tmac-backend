@@ -1,4 +1,4 @@
-package com.tmac.utils.jpa.model;
+package com.tmac.dynamic.model;
 
 import org.apache.commons.lang3.StringUtils;
 

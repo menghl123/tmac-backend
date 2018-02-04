@@ -1,4 +1,4 @@
-package com.tmac.utils.jpa.model;
+package com.tmac.dynamic.model;
 
 import org.springframework.data.jpa.domain.Specification;
 
