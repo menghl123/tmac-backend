@@ -3,7 +3,6 @@ package com.tmac.service;
 import com.tmac.entity.Menu;
 import com.tmac.mapper.MenuMapper;
 import com.tmac.repository.MenuRepository;
-import com.tmac.repository.TestRepository;
 import com.tmac.dynamic.model.QueryParameters;
 import com.tmac.validator.MenuValidator;
 import com.tmac.vo.MenuVo;
@@ -26,13 +25,11 @@ import java.util.stream.Collectors;
 public class MenuService {
     private MenuRepository menuRepository;
     private MenuValidator menuValidator;
-    private TestRepository testRepository;
 
     @Autowired
-    public MenuService(final MenuRepository menuRepository, final MenuValidator menuValidator, final TestRepository testRepository) {
+    public MenuService(final MenuRepository menuRepository, final MenuValidator menuValidator) {
         this.menuRepository = menuRepository;
         this.menuValidator = menuValidator;
-        this.testRepository = testRepository;
     }
 
     public Page<Menu> selectList(final String parentId,
@@ -40,7 +37,6 @@ public class MenuService {
                                  final String url,
                                  final Integer page, final Integer size) {
         final QueryParameters queryParameters = new QueryParameters();
-        this.testRepository.findAll(queryParameters, Menu.class);
         return this.menuRepository
                 .findAllByParentIdContainingAndNameContainingAndUrlContaining(
                         parentId, name, url, new PageRequest(page, size, new Sort("sortId")));
