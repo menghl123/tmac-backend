@@ -2,6 +2,11 @@ spring:
   messages:
     basename: ValidationMessages
     encoding: UTF-8
+   elasticsearch:
+      jest:
+        uris: http://localhost:9200/
+        read-timeout: 20000 #读取超时
+        connection-timeout: 20000 #连接超时
 #    hibernate:
 #      ddl-auto: update
   profiles:
