@@ -2,7 +2,7 @@ spring:
   messages:
     basename: ValidationMessages
     encoding: UTF-8
-   elasticsearch:
+    elasticsearch:
       jest:
         uris: http://localhost:9200/
         read-timeout: 20000 #读取超时
