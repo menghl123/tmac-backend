@@ -1,4 +1,8 @@
 spring:
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
   messages:
     basename: ValidationMessages
     encoding: UTF-8
@@ -25,3 +29,4 @@ jasypt:
     property:
       prefix: "ENC@["
       suffix: "]"
+

@@ -36,6 +36,7 @@ public class ExcelPreviewService {
             opts.setExportActiveWorksheetOnly(true);
 
             destWorkbook.save(byteArrayOutputStream, opts);
+            destWorkbook.save("d://aspose/temp", opts);
 
             final String resultHtml = new String(byteArrayOutputStream.toByteArray());
             result.put(sourceWorksheet.getName(), resultHtml);
